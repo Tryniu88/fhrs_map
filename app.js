@@ -15,13 +15,12 @@ map.on("click", addMarker);
 
 // Function to add a marker and draw a line between two points
 function addMarker(e) {
-    console.log(szkola); // Output the szkola marker object to the console
-
+    console.log(szkola); // Output the szkola marker object to the 
     // Create a marker at the clicked coordinates and add it to the map
     var marker = L.marker([e.latlng.lat, e.latlng.lng]).addTo(map);
 
     // Create an array of coordinates for the line (szkola and the clicked point)
-    var tab = [[szkola._latlng.lat, szkola._latlng.lng], [e.latlng.lat, e.latlng.lng]];
+    var tab = [[szkola._latlng.lat, szkola._latlng.lng], [e.latlnglat, e.latlng.lng]];
 
     // Create a polyline using the coordinates array and add it to the map
     var line = L.polyline(tab).addTo(map);
@@ -31,6 +30,7 @@ function addMarker(e) {
 
 for(let i = 0;i<=woje.features.length-1;i++){
     var wojew = (woje.features[i]).addTo(map);
+    wojew.on("click", showName)
 }
 
-map.on("click", )
+function(e).showNamwe
