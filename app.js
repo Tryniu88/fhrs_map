@@ -1,23 +1,33 @@
+// Create a Leaflet map and set the initial view
 var map = L.map('map').setView([52.178346, 21.573607], 7);
+
+// Add a tile layer to the map using OpenStreetMap tiles
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 
-var szkola = L.marker([52.178346, 21.573607]).addTo(map).bindPopup("Home the place where I can go")
+// Create a marker at the specified coordinates and bind a popup to it
+var szkola = L.marker([52.178346, 21.573607]).addTo(map).bindPopup("Home the place where I can go");
 
-map.on("click",addMarker)
+// Add a click event listener to the map to add markers and draw a line
+map.on("click", addMarker);
 
-function addMarker(e){
-    console.log(szkola)
+// Function to add a marker and draw a line between two points
+function addMarker(e) {
+    console.log(szkola); // Output the szkola marker object to the console
+
+    // Create a marker at the clicked coordinates and add it to the map
     var marker = L.marker([e.latlng.lat, e.latlng.lng]).addTo(map);
 
-    var tab = [[szkola._latlng.lat , szkola._latlng.lng],[e.latlng.lat, e.latlng.lng]]
+    // Create an array of coordinates for the line (szkola and the clicked point)
+    var tab = [[szkola._latlng.lat, szkola._latlng.lng], [e.latlng.lat, e.latlng.lng]];
 
-    var line = L.polyline(tab).addTo(map)
+    // Create a polyline using the coordinates array and add it to the map
+    var line = L.polyline(tab).addTo(map);
 }
 
-// Create two points
+// Create two points using Leaflet's L.latLng method
 var point1 = L.latLng(52.178346, 21.573607);
 var point2 = L.latLng(52.178346, 21.573607);
 
@@ -25,4 +35,3 @@ var point2 = L.latLng(52.178346, 21.573607);
 var distance = point1.distanceTo(point2);
 
 console.log(distance); // Output: 12398.442434852384
-
