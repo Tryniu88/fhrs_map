@@ -27,10 +27,6 @@ function addMarker(e) {
     var line = L.polyline(tab).addTo(map);
 }
 
-// Create two points using Leaflet's L.latLng method
-var point1 = L.latLng(52.178346, 21.573607);
-var point2 = L.latLng(52.178346, 21.573607);
-
 // Calculate the distance between the two points (in meters)
 var distance = point1.distanceTo(point2);
 
