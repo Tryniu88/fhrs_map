@@ -27,7 +27,10 @@ function addMarker(e) {
     var line = L.polyline(tab).addTo(map);
 }
 
-// Calculate the distance between the two points (in meters)
-var distance = point1.distanceTo(point2);
 
-console.log(distance); // Output: 12398.442434852384
+
+for(let i = 0;i<=woje.features.length-1;i++){
+    var wojew = (woje.features[i]).addTo(map);
+}
+
+map.on("click", )
