@@ -33,6 +33,6 @@ for(let i = 0;i<=woje.features.length-1;i++){
     wojew.on("click", showName)
 }
 
-function (e).showName{
-
+function showname(e){
+    console.log(e.layer)
 }
